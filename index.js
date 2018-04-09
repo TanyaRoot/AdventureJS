@@ -26,8 +26,7 @@ removeFirstAndLastChar('person')  // return 'erso'
 */
 
 function revertToArray(numb) {
-  // Your code here
-
+  return String(numb).split("").reverse();
 }
 
 revertToArray(348597) // return [7,9,5,8,4,3]
@@ -39,7 +38,7 @@ revertToArray(752223401) // return [1,0,4,3,2,2,2,5,7]
 */
 
 function noSpaceString(str) {
-  // Your code here
+  return str.replace(/\s+/g,'');
 }
 
 noSpaceString('8 j 8   mBliB8g  imjB8B8  jl  B') //return '8j8mBliB8gimjB8B8jlB'
@@ -54,7 +53,7 @@ noSpaceString('8aaaaa dddd r     ') //return '8aaaaaddddr'
 */
 
 function removeNumbers(str) {
-  // Your code here
+  return str.replace(/5/g,'S').replace(/0/g,'O').replace(/1/g,'I');
 }
 
 removeNumbers('L0ND0N') // return 'LONDON'
@@ -144,9 +143,40 @@ omg(20); //'Wrong, please enter a number between 1 and 7'
   и будет возвращать их сумму и если сумму узнать невозможно выводим ошибку
 */
 
+// function s(a,b) {
+// c = Number.parseInt(a) + Number.parseInt(b);
+// if (c !== c) {
+// return "Wrong, please put a number in string";
+// };
+// return c;
+// };
+
 function s(a,b) {
-  // тут мол чЕ
-}
+// a сделаем массивом
+// какой из методов подойдет some/every
+// метод перебора вернет нам true если в массиве только числа
+// вернет false если есть НЕ число
+// поторим с массиом b
+// если и то и то канает, ништяк, если нет, валим из функции за косяком
+  var newA = a.split('').every(checkEl);
+  var newB = b.split('').every(checkEl);
+
+  function checkEl(el) {
+      return  !isNaN(el);
+  };
+
+  if (newA === true && newB === true) {
+    return +a + +b;
+  } else {
+    return "Wrong, please put a number in string";
+  };
+
+};
+
+console.log(s("4","5"))
+console.log(s("s34","5"))
+console.log(s("1ы12ы","9"))
+console.log(s("143","9вы5"))
 
 s("4","5") // "9"
 s("34","5") // "39"
@@ -161,34 +191,16 @@ s("1","9") // "10"
 */
 
 function hanSolo(arrayNumbers) {
-  // тут мол чЕ
-  // newNumb = arr.reduce(function() {
-  // return if (...number...) prev + curr
-// })
+var newNumb = arrayNumbers.reduce(function(a, b){
+return a + Number(b);
+}, 0);
+console.log(newNumb);
 };
 
 hanSolo([]) // 0
 hanSolo([1, 5.2, 4, 0, -1]) // 9.2
 hanSolo([1, 5.2, 4, null, -1]) // 9.2
 hanSolo(['1', 5.2, 4, 0, -1]) // 9.2
-
-//недопил----------------------------------------------
-/*function hanSolo(arrayNumbers) {
-
-    var euros = arrayNumbers;
-    console.log(euros);
-
-    var sum = euros
-        .reduce(function (a, b) {
-        return a + b;
-		
-
-        });
-
-};
-console.log(sum);
-hanSolo([29.76, 41.85, 46.5]) //118.11
-*/
 
 /**
   Задача, реализовать функцию, которая будет принимать число (год)
