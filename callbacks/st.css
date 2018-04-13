@@ -1,0 +1,25 @@
+li {
+  list-style-type: none;
+}
+
+ .ul2_list {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 4px;
+  width: 700px;
+  background-color: lightgray;
+
+}
+
+.divBody1 {
+
+  }
+
+.spanId {
+  margin-right: 30px;
+  display: inline-block;
+}
+.h2Title {
+  display: inline;
+}
